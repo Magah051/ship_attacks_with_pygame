@@ -20,11 +20,19 @@ playerImg = pygame.image.load('images/space.png').convert_alpha()
 playerImg = pygame.transform.scale(playerImg, (50,50))
 playerImg = pygame.transform.rotate(playerImg, -90)
 
+missil = pygame.image.load('images/missile.png').convert_alpha()
+missil = pygame.transform.scale(missil, (25,25))
+missil = pygame.transform.rotate(missil, (-45))
+
 pos_alien_x = 500
 pos_alien_y = 360
 
 pos_player_x = 200
 pos_player_y = 300
+
+vel_x_missil = 0
+pos_x_missil = 200
+pos_y_missil = 300
 
 
 rodando = True
@@ -61,6 +69,7 @@ while rodando:
     pos_alien_x -=1
 
     screen.blit(alien, (pos_alien_x, pos_alien_y))
+    screen.blit(missil, (pos_x_missil, pos_y_missil))
     screen.blit(playerImg, (pos_player_x, pos_player_y))
 
     pygame.display.update()
