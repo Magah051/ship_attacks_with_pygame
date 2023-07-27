@@ -39,6 +39,10 @@ triggered = False
 
 rodando = True
 
+player_rect = playerImg.get_rect()
+alien_rect = alien.get_rect()
+missil_rect = missil.get_rect()
+
 def respawn():
     x = 1350
     y = random.randint(1,640)
@@ -88,9 +92,22 @@ while rodando:
     if pos_x_missil == 1300:
         pos_x_missil, pos_y_missil, triggered, vel_x_missil = respawn_missil()
 
+    player_rect.y = pos_player_y
+    player_rect.x = pos_player_x
+
+    missil_rect.x = pos_x_missil
+    missil_rect.y = pos_y_missil
+
+    alien_rect.x = pos_alien_x
+    alien_rect.y = pos_alien_y
+
     x-=2
     pos_alien_x -=1
     pos_x_missil += vel_x_missil
+
+    pygame.draw.rect(screen, (255, 0, 0), player_rect, 4)
+    pygame.draw.rect(screen, (255, 0, 0), missil_rect, 4)
+    pygame.draw.rect(screen, (255, 0, 0), alien_rect, 4)
 
     screen.blit(alien, (pos_alien_x, pos_alien_y))
     screen.blit(missil, (pos_x_missil, pos_y_missil))
