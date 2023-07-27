@@ -1,4 +1,5 @@
-import pygame;
+import pygame
+import random
 
 
 pygame.init
@@ -28,6 +29,12 @@ pos_player_y = 300
 
 rodando = True
 
+def respawn():
+    x = 1350
+    y = random.randint(1,640)
+    return [x, y]
+
+
 while rodando:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -46,7 +53,12 @@ while rodando:
     if (tecla[pygame.K_DOWN] or tecla[pygame.K_s]) and pos_player_y < 665:
         pos_player_y +=1    
     
+    if pos_alien_x == 50:
+        pos_alien_x = respawn()[0]
+        pos_alien_y = respawn()[1]
+
     x-=2
+    pos_alien_x -=1
 
     screen.blit(alien, (pos_alien_x, pos_alien_y))
     screen.blit(playerImg, (pos_player_x, pos_player_y))
