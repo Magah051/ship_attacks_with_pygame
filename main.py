@@ -144,9 +144,9 @@ while rodando:
     pos_alien_x -=1
     pos_x_missil += vel_x_missil
 
-    pygame.draw.rect(screen, (255, 0, 0), player_rect, 4)
-    pygame.draw.rect(screen, (255, 0, 0), missil_rect, 4)
-    pygame.draw.rect(screen, (255, 0, 0), alien_rect, 4)
+    pygame.draw.rect(screen, (255, 0, 0), player_rect, -1)
+    pygame.draw.rect(screen, (255, 0, 0), missil_rect, -1)
+    pygame.draw.rect(screen, (255, 0, 0), alien_rect, -1)
 
     score = font.render(f' Pontos: {int(pontos)} ', True, (0,0,0))
     screen.blit(score, (50,50))
