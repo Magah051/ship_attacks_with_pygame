@@ -1,8 +1,10 @@
 import pygame
 import random
+from pygame import mixer 
 
 
 pygame.init()
+
 
 x = 1280
 y = 720
@@ -71,12 +73,25 @@ def colisions():
         return False
 
 
+mixer.init()
+musica_fundo = pygame.mixer.Sound('songs/start.mp3')
+musica_fundo.set_volume(0.4)
+som_tiro = pygame.mixer.Sound('songs/tiro.mp3')
+
+canal_musica_fundo = pygame.mixer.Channel(0)
+canal_tiro_musica = pygame.mixer.Channel(1)
+canal_batida_musica = pygame.mixer.Channel(2)
+
+canal_musica_fundo.play(musica_fundo, loops=-1)
+
 while rodando:
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             rodando = False
     
     screen.blit(bg,(0,0))
+
 
     rel_x = x % bg.get_rect().width
     screen.blit(bg, (rel_x - bg.get_rect().width, 0))
@@ -98,7 +113,8 @@ while rodando:
 
     if tecla[pygame.K_SPACE]:
         triggered = True
-        vel_x_missil = 2  
+        vel_x_missil = 2
+        canal_tiro_musica.play(som_tiro)     
 
     if pontos == -1:
         rodando = False
