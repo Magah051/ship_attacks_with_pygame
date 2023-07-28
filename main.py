@@ -2,7 +2,7 @@ import pygame
 import random
 
 
-pygame.init
+pygame.init()
 
 x = 1280
 y = 720
@@ -36,9 +36,12 @@ pos_y_missil = 300
 
 triggered = False
 
-pontos = 10
+pontos = 3
 
 rodando = True
+
+font = pygame.font.SysFont('fonts/PixelGameFont.ttf', 50)
+
 
 player_rect = playerImg.get_rect()
 alien_rect = alien.get_rect()
@@ -96,6 +99,9 @@ while rodando:
     if tecla[pygame.K_SPACE]:
         triggered = True
         vel_x_missil = 2  
+
+    if pontos == -1:
+        rodando = False
     
     if pos_alien_x == 50:
         pos_alien_x = respawn()[0]
@@ -126,8 +132,11 @@ while rodando:
     pygame.draw.rect(screen, (255, 0, 0), missil_rect, 4)
     pygame.draw.rect(screen, (255, 0, 0), alien_rect, 4)
 
+    score = font.render(f' Pontos: {int(pontos)} ', True, (0,0,0))
+    screen.blit(score, (50,50))
+
     screen.blit(alien, (pos_alien_x, pos_alien_y))
     screen.blit(missil, (pos_x_missil, pos_y_missil))
     screen.blit(playerImg, (pos_player_x, pos_player_y))
-
+  
     pygame.display.update()
