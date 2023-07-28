@@ -36,6 +36,7 @@ pos_y_missil = 300
 
 triggered = False
 
+pontos = 10
 
 rodando = True
 
@@ -54,6 +55,17 @@ def respawn_missil():
     respawn_missil_y = pos_player_y
     vel_x_missil = 0
     return [respawn_missil_x, respawn_missil_y, triggered, vel_x_missil]
+
+def colisions():
+    global pontos
+    if player_rect.colliderect(alien_rect) or alien_rect.x == 60:
+        pontos -=1
+        return True
+    elif missil_rect.colliderect(alien_rect):
+        pontos +=1
+        return True
+    else:
+        return False
 
 
 while rodando:
@@ -91,6 +103,11 @@ while rodando:
 
     if pos_x_missil == 1300:
         pos_x_missil, pos_y_missil, triggered, vel_x_missil = respawn_missil()
+    
+    if pos_alien_x == 50 or colisions():
+        pos_alien_x = respawn()[0]
+        pos_alien_y = respawn()[1]
+                                      
 
     player_rect.y = pos_player_y
     player_rect.x = pos_player_x
