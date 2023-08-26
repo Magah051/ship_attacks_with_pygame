@@ -10,3 +10,13 @@ O jogo Ship Attacks, também conhecido como "space shooter", é um subgênero do
 - Desafio gradual: A dificuldade do jogo normalmente aumenta à medida que o jogador progride. Inimigos e chefes tornam-se mais rápidos e complexos, exigindo que o jogador aprimore suas habilidades e estratégias para continuar avançando.
 - Padrões de ataque: Muitos inimigos e chefes têm padrões previsíveis de ataque, o que significa que seus movimentos e disparos seguem sequências específicas. Os jogadores precisam aprender esses padrões para evitar os ataques e responder eficazmente.
 - Estilo visual e sonoro: Jogos de navinha costumam ter um estilo visual vibrante, com elementos futuristas e efeitos visuais impressionantes. A trilha sonora geralmente é energética e ritmada, contribuindo para a intensidade da jogabilidade.
+
+## Instalação
+Basta clonar este repositório e executar o script `main.py`. Certifique-se de ter a lib `pygame`instalada.
+
+## Como Jogar?
+- Basta usar as teclas "w" e "s" para mover a nave para cima e para baixo, respectivamente; use a tecla "space" para atirar.
+
+## Interface do Jogo
+
+![ezgif-1-376ceccc40](https://github.com/Magah051/ship_attacks_with_pygame/assets/31749933/b1e71013-d68d-41c5-9734-53499b1917f8)
